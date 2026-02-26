@@ -1,163 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ameri Solutions | Owner Project Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ameri Solutions | Owner Project Portal</title>
+  <style>
+    :root {
+      --bg: #f4f7f5;
+      --card: #ffffff;
+      --ink: #1b2320;
+      --ink-soft: #5a6a63;
+      --line: #d8dfdb;
+      --brand: #1f7a5a;
+      --brand-soft: #e8f3ef;
+      --warn: #b45309;
+      --ok: #166534;
+    }
 
-    <!-- ==================== PASTE YOUR FULL ORIGINAL CSS HERE ==================== -->
-    <style>
-        /* Replace everything in this <style> block with your REAL original styles */
-        :root {
-            --bg: #f4f7f5;
-            --card: #ffffff;
-            --ink: #1b2320;
-            --ink-soft: #5a6a63;
-            --line: #d8dfdb;
-            --brand: #1f7a5a;
-            --brand-soft: #e8f3ef;
-            --warn: #b45309;
-            --ok: #166534;
-        }
-        /* ... your full original CSS continues here ... */
-        /* Do NOT leave comments like "paste your original styles" in the live file */
-    </style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    h1, h2 { margin: 0 0 16px; }
+    label { display: block; margin: 16px 0 6px; font-weight: 600; color: var(--ink-soft); }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 8px 8px 8px 0;
+    }
+
+    .btn-primary   { background: var(--brand); color: white; }
+    .btn-secondary { background: #e0e0e0; color: #333; }
+    .btn-danger    { background: #c0392b; color: white; }
+
+    #app-shell { display: none; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .preview-box {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: white;
+      min-height: 200px;
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .status.error   { background: #ffebee; color: #c62828; }
+    .status.success { background: #e8f5e9; color: #2e7d32; }
+  </style>
 </head>
 <body>
 
-    <!-- ==================== PASTE YOUR FULL ORIGINAL HTML HERE ==================== -->
-    <section id="auth-screen" class="card">
-        <h1>Owner Login</h1>
-        <p class="subtle">Sign in to create, preview, and publish projects.</p>
-        <form id="login-form" novalidate>
-            <label for="login-email">Email</label>
-            <input id="login-email" type="email" autocomplete="email" required>
+<section id="auth-screen" class="card">
+  <h1>Owner Login</h1>
+  <p>Sign in to manage projects</p>
 
-            <label for="login-password">Password</label>
-            <input id="login-password" type="password" autocomplete="current-password" required>
+  <form id="login-form">
+    <label>Email</label>
+    <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
 
-            <div class="auth-actions">
-                <button type="submit" class="btn-primary" style="width: 100%;">Unlock Portal</button>
-            </div>
-        </form>
-        <p id="auth-status" class="status"></p>
-    </section>
+    <label>Password</label>
+    <input id="password" type="password" required autocomplete="current-password">
 
-    <section id="app-shell" class="card" style="display:none;">
-        <!-- Your full app shell HTML goes here: header, form, preview area, published list, etc. -->
-        <div class="header">
-            <div>
-                <h2>Project Publisher</h2>
-                <p class="subtle">Create a draft, check preview, then publish to website.</p>
-            </div>
-            <button type="button" id="logout" class="btn-muted">Logout</button>
-        </div>
+    <button type="submit" class="btn-primary">Sign In</button>
+  </form>
 
-        <form id="project-form" novalidate>
-            <!-- PASTE YOUR REAL FORM FIELDS HERE -->
-            <!-- title, category select, image file input, summary textarea, detail textarea, buttons, etc. -->
-        </form>
+  <div id="login-status" class="status"></div>
+</section>
 
-        <!-- Preview area, published projects list, etc. -->
-    </section>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-        import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+<section id="app-shell" class="card">
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyDsY8A38H9mSR9Qbydeo0NWe4VPDneFEGQ",
-            authDomain: "ameri-solutions.firebaseapp.com",
-            projectId: "ameri-solutions",
-            storageBucket: "ameri-solutions.firebasestorage.app",
-            messagingSenderId: "790563539005",
-            appId: "1:790563539005:web:786c51f48868079aacc254"
-        };
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+    <h1>Project Manager</h1>
+    <button id="logout-btn" class="btn-secondary">Logout</button>
+  </div>
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const storage = getStorage(app, "ameri-solutions.firebasestorage.app");
+  <form id="project-form" class="grid-2">
+    <div>
+      <label>Title</label>
+      <input id="title" type="text" required placeholder="e.g. Kitchen Remodel">
+    </div>
 
-        console.log("Firebase initialized with bucket:", storage.app.options.storageBucket);
+    <div>
+      <label>Category</label>
+      <select id="category" required>
+        <option value="">Select category</option>
+        <option value="Handyman">Handyman</option>
+        <option value="Flooring">Flooring</option>
+        <option value="Landscaping">Landscaping</option>
+        <option value="Snow Removal">Snow Removal</option>
+      </select>
+    </div>
 
-        // ==================== PASTE YOUR FULL ORIGINAL JAVASCRIPT LOGIC HERE ====================
-        // All variables, DOM queries, event listeners, preview function, published projects loading, etc.
-        // Especially:
-        // - const loginForm = document.getElementById('login-form');
-        // - const projectForm = document.getElementById('project-form');
-        // - onAuthStateChanged(...)
-        // - loginForm.addEventListener('submit', ...)
-        // - projectForm.addEventListener('submit', ...)
-        // - Your preview button handler
-        // - Published projects rendering
+    <div style="grid-column: 1 / -1;">
+      <label>Image</label>
+      <input id="image-file" type="file" accept="image/*">
+    </div>
 
-        // Example minimal auth handler (add your full version)
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                document.getElementById('auth-screen').style.display = 'none';
-                document.getElementById('app-shell').style.display = 'block';
-            } else {
-                document.getElementById('auth-screen').style.display = 'block';
-                document.getElementById('app-shell').style.display = 'none';
+    <div>
+      <label>Short Summary</label>
+      <textarea id="summary" required placeholder="Brief description (1-2 sentences)"></textarea>
+    </div>
+
+    <div>
+      <label>Full Details</label>
+      <textarea id="detail" required placeholder="Detailed description, materials used, challenges, etc."></textarea>
+    </div>
+
+    <div style="grid-column: 1 / -1; text-align: right;">
+      <button type="button" id="preview-btn" class="btn-secondary">Preview</button>
+      <button type="submit" class="btn-primary">Publish</button>
+    </div>
+  </form>
+
+  <div id="preview-area" class="preview-box" style="margin-top:24px;">
+    <strong>Preview will appear here</strong>
+  </div>
+
+  <div id="publish-status" class="status"></div>
+
+</section>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDsY8A38H9mSR9Qbydeo0NWe4VPDneFEGQ",
+    authDomain: "ameri-solutions.firebaseapp.com",
+    projectId: "ameri-solutions",
+    storageBucket: "ameri-solutions.firebasestorage.app",
+    messagingSenderId: "790563539005",
+    appId: "1:790563539005:web:786c51f48868079aacc254"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const storage = getStorage(app, "ameri-solutions.firebasestorage.app");
+
+  console.log("Firebase initialized with bucket:", storage.app.options.storageBucket);
+
+  // ────────────────────────────────────────────────
+  //  DOM elements
+  // ────────────────────────────────────────────────
+
+  const authScreen   = document.getElementById("auth-screen");
+  const appShell     = document.getElementById("app-shell");
+  const loginForm    = document.getElementById("login-form");
+  const loginStatus  = document.getElementById("login-status");
+  const logoutBtn    = document.getElementById("logout-btn");
+  const projectForm  = document.getElementById("project-form");
+  const previewArea  = document.getElementById("preview-area");
+  const publishStatus = document.getElementById("publish-status");
+
+  // ────────────────────────────────────────────────
+  //  Auth state
+  // ────────────────────────────────────────────────
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      authScreen.style.display = "none";
+      appShell.style.display = "block";
+      loginStatus.textContent = "";
+    } else {
+      authScreen.style.display = "block";
+      appShell.style.display = "none";
+    }
+  });
+
+  // Login
+  loginForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const pw = document.getElementById("password").value;
+
+    try {
+      loginStatus.textContent = "Signing in...";
+      loginStatus.className = "status";
+      await signInWithEmailAndPassword(auth, email, pw);
+    } catch (err) {
+      loginStatus.textContent = err.message;
+      loginStatus.className = "status error";
+    }
+  });
+
+  // Logout
+  logoutBtn.addEventListener("click", async () => {
+    await signOut(auth);
+  });
+
+  // ────────────────────────────────────────────────
+  //  Preview (simple text preview)
+  // ────────────────────────────────────────────────
+
+  const titleEl    = document.getElementById("title");
+  const categoryEl = document.getElementById("category");
+  const summaryEl  = document.getElementById("summary");
+  const detailEl   = document.getElementById("detail");
+  const imageInput = document.getElementById("image-file");
+
+  document.getElementById("preview-btn").addEventListener("click", () => {
+    const file = imageInput.files[0];
+    let imgTag = file ? `<p><em>Image selected: ${file.name}</em></p>` : "<p>No image selected</p>";
+
+    previewArea.innerHTML = `
+      <h3>${titleEl.value || "No title"}</h3>
+      <p><strong>Category:</strong> ${categoryEl.value || "—"}</p>
+      ${imgTag}
+      <p><strong>Summary:</strong><br>${summaryEl.value || "—"}</p>
+      <p><strong>Details:</strong><br>${detailEl.value || "—"}</p>
+    `;
+  });
+
+  // ────────────────────────────────────────────────
+  //  Publish / Save
+  // ────────────────────────────────────────────────
+
+  projectForm.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    publishStatus.textContent = "Publishing...";
+    publishStatus.className = "status";
+
+    try {
+      let imageUrl = "";
+
+      const file = imageInput.files[0];
+      if (file) {
+        const path = `projects/${Date.now()}_${file.name}`;
+        const storageRef = ref(storage, path);
+        const task = uploadBytesResumable(storageRef, file);
+
+        await new Promise((resolve, reject) => {
+          task.on(
+            "state_changed",
+            snap => {
+              const pct = (snap.bytesTransferred / snap.totalBytes) * 100;
+              publishStatus.textContent = `Uploading... ${pct.toFixed(0)}%`;
+            },
+            reject,
+            async () => {
+              imageUrl = await getDownloadURL(task.snapshot.ref);
+              resolve();
             }
+          );
         });
+      }
 
-        // Your saveProject function with upload fix
-        async function saveProject(project, status = "published") {
-            try {
-                let imageUrl = project.image || '';
+      const data = {
+        title: titleEl.value.trim(),
+        category: categoryEl.value,
+        image: imageUrl,
+        summary: summaryEl.value.trim(),
+        detail: detailEl.value.trim(),
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      };
 
-                // Replace with your actual file input variable name
-                const fileInput = document.getElementById('project-image-file'); // ← change ID if different
-                const selectedFile = fileInput?.files?.[0];
+      await addDoc(collection(db, "projects"), data);
 
-                if (selectedFile) {
-                    console.log("Starting upload to correct bucket...");
-                    const storagePath = `project-images/${Date.now()}-${selectedFile.name}`;
-                    const storageRef = ref(storage, storagePath);
-                    const uploadTask = uploadBytesResumable(storageRef, selectedFile);
+      publishStatus.textContent = "Project published successfully!";
+      publishStatus.className = "status success";
 
-                    uploadTask.on('state_changed',
-                        (snapshot) => {
-                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            console.log(`Upload progress: ${progress}%`);
-                        },
-                        (error) => console.error("Upload error:", error),
-                        async () => {
-                            imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-                            console.log("Upload complete. URL:", imageUrl);
-                        }
-                    );
+      projectForm.reset();
+      previewArea.innerHTML = "<strong>Preview will appear here</strong>";
 
-                    await uploadTask;
-                }
+    } catch (err) {
+      console.error(err);
+      publishStatus.textContent = "Error: " + (err.message || "Unknown error");
+      publishStatus.className = "status error";
+    }
+  });
 
-                const payload = {
-                    title: project.title,
-                    category: project.category,
-                    image: imageUrl,
-                    summary: project.summary,
-                    detail: project.detail,
-                    status,
-                    createdAt: serverTimestamp(),
-                    updatedAt: serverTimestamp()
-                };
-
-                // Replace with your actual logic (addDoc or updateDoc)
-                await addDoc(collection(db, "projects"), payload);
-                console.log("Project saved successfully");
-
-            } catch (err) {
-                console.error("Save error:", err.code, err.message);
-            }
-        }
-
-        // Add your full form submit logic here
-        // document.getElementById('project-form').addEventListener('submit', async (e) => { ... saveProject(...) });
-    </script>
+</script>
 </body>
 </html>
