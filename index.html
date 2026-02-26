@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ameri Solutions | Premium Handyman and Landscaping Services</title>
+  <meta name="description" content="Ameri Solutions provides premium handyman and landscaping services in Clarksburg and Montgomery County, Maryland." />
+  <link rel="canonical" href="https://amerihomesolutions.com/" />
+  <meta name="theme-color" content="#0b1118" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ameri Home Solutions | Handyman, Landscaping & Flooring" />
+  <meta property="og:description" content="Premium handyman, landscaping, flooring, and snow removal services in Clarksburg and Montgomery County, Maryland." />
+  <meta property="og:url" content="https://amerihomesolutions.com/" />
+  <meta property="og:image" content="https://amerihomesolutions.com/logo-512.png" />
+  <meta property="og:site_name" content="Ameri Home Solutions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ameri Home Solutions | Handyman, Landscaping & Flooring" />
+  <meta name="twitter:description" content="Premium handyman, landscaping, flooring, and snow removal services in Clarksburg and Montgomery County, Maryland." />
+  <meta name="twitter:image" content="https://amerihomesolutions.com/logo-512.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "https://amerihomesolutions.com/#organization",
+          "name": "Ameri Home Solutions",
+          "url": "https://amerihomesolutions.com/",
+          "logo": "https://amerihomesolutions.com/logo-512.png",
+          "image": "https://amerihomesolutions.com/logo-512.png",
+          "telephone": "+1-571-402-9160"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://amerihomesolutions.com/#website",
+          "url": "https://amerihomesolutions.com/",
+          "name": "Ameri Home Solutions",
+          "publisher": {
+            "@id": "https://amerihomesolutions.com/#organization"
+          }
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1118;
+      --surface: #121b26;
+      --surface-2: #172332;
+      --ink: #e7edf6;
+      --ink-soft: #a3b2c7;
+      --line: #2b3a4d;
+      --brand: #2f4e78;
+      --accent: #c89b5b;
+      --accent-soft: #2c251b;
+      --shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .brand {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :where(a, button, input, select, textarea):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(200, 155, 91, 0.22);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2.4rem));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: clamp(4.8rem, 8vw, 6.3rem) 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 24, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.45rem;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--ink);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .phone-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--brand);
+      color: var(--brand);
+      padding: 0.62rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .phone-btn:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      min-width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0 0.6rem;
+      cursor: pointer;
+    }
+
+    .mobile-backdrop {
+      position: fixed;
+      inset: 0;
+      border: 0;
+      background: rgba(4, 8, 13, 0.66);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.22s ease, visibility 0.22s ease;
+      z-index: 90;
+    }
+
+    .mobile-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-panel {
+      display: none;
+      padding-bottom: 1rem;
+      gap: 0.35rem;
+    }
+
+    .mobile-panel.open {
+      display: grid;
+    }
+
+    .mobile-link {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 0.66rem 0.78rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+
+    .hero {
+      padding: clamp(4rem, 9vw, 5.4rem) 0 3.2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .hero-card,
+    .hero-media {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: clamp(1.5rem, 2.8vw, 2.4rem);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.27rem 0.63rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.95rem, 5vw, 3.6rem);
+      margin-bottom: 0.95rem;
+      max-width: 16ch;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      color: var(--ink-soft);
+      max-width: 49ch;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.68rem;
+      margin-bottom: 1.45rem;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.78rem 1rem;
+      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.74rem;
+      background: var(--surface-2);
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--ink);
+      font-family: "Playfair Display", serif;
+    }
+
+    .kpi small {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .hero-media {
+      overflow: hidden;
+      position: relative;
+      min-height: 420px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-note {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(18, 27, 38, 0.86);
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.62rem 0.7rem;
+      font-size: 0.83rem;
+      max-width: 26ch;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: clamp(1.3rem, 2.8vw, 2rem);
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.68rem, 4.1vw, 2.65rem);
+    }
+
+    .section-head p {
+      max-width: 46ch;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    .services {
+      display: grid;
+      gap: 1.05rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .service-card p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      margin-bottom: 0.72rem;
+    }
+
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 0.3rem;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+    }
+
+    .service-list li::before {
+      content: "- ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .projects-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0f1822;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.42rem 0.7rem;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: #45628a;
+      color: var(--ink);
+    }
+
+    .filter-btn.active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .projects-empty {
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 0.8rem;
+      text-align: center;
+      background: var(--surface-2);
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface);
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: #45628a;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.34);
+    }
+
+    .project-media {
+      height: 176px;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface-2);
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-media.missing img {
+      display: none;
+    }
+
+    .missing-media {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--ink-soft);
+      padding: 0.8rem;
+      background: linear-gradient(145deg, rgba(28, 42, 58, 0.95), rgba(17, 26, 37, 0.96));
+    }
+
+    .project-media.missing .missing-media {
+      display: grid;
+    }
+
+    .project-body {
+      padding: 0.8rem;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      margin-bottom: 0.28rem;
+      font-weight: 700;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .about-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-panel p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 1.2rem;
+    }
+
+    .testimonial {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial p {
+      color: var(--ink-soft);
+      font-size: 0.89rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .testimonial strong {
+      font-size: 0.86rem;
+    }
+
+    .faq {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1.2rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-btn {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      text-align: left;
+      padding: 0.88rem 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .faq-icon {
+      width: 24px;
+      text-align: center;
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.22s ease;
+      color: var(--ink-soft);
+      font-size: 0.86rem;
+      padding: 0 0.95rem;
+    }
+
+    .faq-item.open .faq-content {
+      max-height: 140px;
+      padding-bottom: 0.9rem;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1rem;
+    }
+
+    .contact-panel,
+    .form-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 1.05rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.95rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.83rem;
+      margin-bottom: 0.1rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.68rem;
+      font: inherit;
+      color: var(--ink);
+      background: var(--surface-2);
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      border-color: #5879a5;
+      background: #1a2a3d;
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .error {
+      min-height: 1em;
+      font-size: 0.74rem;
+      color: #b42318;
+    }
+
+    .form-status {
+      display: none;
+      border-radius: 10px;
+      padding: 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.success {
+      background: #12281b;
+      border: 1px solid #25553a;
+      color: #8dd3a6;
+    }
+
+    .form-status.warn {
+      background: #2a2116;
+      border: 1px solid #60482a;
+      color: #e8bf85;
+    }
+
+    .footer {
+      padding: 1.3rem 0 1.5rem;
+      border-top: 1px solid var(--line);
+      color: #8fa1b8;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 110;
+      background: #233a59;
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.68rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .floating-call:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(5, 10, 16, 0.72);
+      z-index: 120;
+      padding: 1rem;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(900px, 100%);
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-media {
+      min-height: 320px;
+    }
+
+    .modal-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 1rem;
+      display: grid;
+      align-content: start;
+      gap: 0.5rem;
+    }
+
+    .modal-close {
+      width: 33px;
+      height: 33px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--ink);
+      cursor: pointer;
+      justify-self: end;
+    }
+
+    .modal-tag {
+      width: fit-content;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 0.23rem 0.56rem;
+      background: var(--accent-soft);
+      color: #d6b07a;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .modal-card {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-media {
+        min-height: 220px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 4.2rem 0;
+      }
+
+      .topbar-inner {
+        min-height: 72px;
+      }
+
+      .nav,
+      .phone-btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .services,
+      .projects-grid,
+      .testimonial-grid,
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="logo-wrap" href="#home">
+          <img class="logo-img" src="IMG_0505.JPG" alt="Ameri Solutions logo" />
+          <div>
+            <div class="brand">Ameri Solutions</div>
+            <div class="brand-sub">Property Services</div>
+          </div>
+        </a>
+
+        <nav class="nav" id="desktop-nav">
+          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <a class="phone-btn" href="tel:5714029160">Call (571) 402-9160</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+      </div>
+
+      <div class="mobile-panel" id="mobile-panel" aria-hidden="true">
+        <a class="mobile-link" href="#home">Home</a>
+        <a class="mobile-link" href="#services">Services</a>
+        <a class="mobile-link" href="#projects">Projects</a>
+        <a class="mobile-link" href="#about">About</a>
+        <a class="mobile-link" href="#contact">Contact</a>
+        <a class="mobile-link" href="tel:5714029160">Call now</a>
+      </div>
+    </div>
+  </header>
+  <button class="mobile-backdrop" id="mobile-backdrop" type="button" aria-label="Close menu"></button>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <article class="hero-card fade">
+          <span class="eyebrow">Premium local provider</span>
+          <h1 class="hero-title">A higher standard for <span>home and outdoor services</span></h1>
+          <p class="hero-copy">
+            Ameri Solutions delivers refined workmanship and dependable execution for homeowners and small businesses in Clarksburg and Montgomery County, Maryland.
+            One trusted team. Focused disciplines.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Request Quote</a>
+            <a href="#projects" class="btn btn-secondary">View Portfolio</a>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi"><strong>500+</strong><small>Projects completed</small></div>
+            <div class="kpi"><strong>4.9/5</strong><small>Client satisfaction</small></div>
+            <div class="kpi"><strong>Same day</strong><small>Response for many requests</small></div>
+          </div>
+        </article>
+
+        <article class="hero-media fade">
+          <img src="IMG_0429.jpeg" alt="Custom fireplace drywall craftsmanship" />
+          <p class="hero-note">Detailed execution across repairs, exterior care, and property upkeep.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head fade">
+          <h2>Core Services</h2>
+          <p>Specialized teams with one quality standard across every project.</p>
+        </div>
+
+        <div class="services">
+          <article class="service-card fade">
+            <h3>Handyman and Repairs</h3>
+            <p>Practical solutions delivered with precision and clean finishing.</p>
+            <ul class="service-list">
+              <li>Drywall, patching, and finishing</li>
+              <li>Fixtures, doors, and hardware installation</li>
+              <li>Assembly and mount services</li>
+            </ul>
+          </article>
+
+          <article class="service-card fade">
+            <h3>Landscaping and Outdoor Care</h3>
+            <p>Outdoor spaces maintained for curb appeal, function, and seasonality.</p>
+            <ul class="service-list">
+              <li>Lawn maintenance and trimming</li>
+              <li>Garden refresh and planting support</li>
+              <li>Snow and ice removal</li>
+              <li>Seasonal cleanup and detailing</li>
+            </ul>
+          </article>
+
+          <article class="service-card fade">
+            <h3>Flooring Services</h3>
+            <p>Durable, clean flooring upgrades and refinishing with detail-focused finishing.</p>
+            <ul class="service-list">
+              <li>Hardwood floor refinishing</li>
+              <li>Floor touch-ups and repairs</li>
+              <li>Baseboard and transition finishing</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-wrap">
+      <div class="container">
+        <div class="section-head fade">
+          <h2>Selected Work</h2>
+          <p>Browse recent projects by service category and open each item for details.</p>
+        </div>
+
+        <div class="filter-row" id="filter-row">
+          <button class="filter-btn active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Handyman">Handyman</button>
+          <button class="filter-btn" data-filter="Flooring">Flooring</button>
+          <button class="filter-btn" data-filter="Landscaping">Landscaping</button>
+          <button class="filter-btn" data-filter="Snow Removal">Snow Removal</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head fade">
+          <h2>Why Clients Choose Ameri Solutions</h2>
+          <p>Professional communication, clear scope, and disciplined execution from first call to final walkthrough.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-panel fade">
+            <h3>Operational discipline</h3>
+            <p>We plan each engagement with defined scope, timeline, and quality checkpoints, reducing delays and avoiding rework.</p>
+          </article>
+          <article class="about-panel fade">
+            <h3>Single accountable partner</h3>
+            <p>Home repairs and landscaping can be coordinated under one provider, simplifying communication and scheduling.</p>
+          </article>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial fade">
+            <div class="stars">5/5</div>
+            <p>"Excellent drywall and installation work. Professional crew and clear communication from start to finish."</p>
+            <strong>Sarah N. - Clarksburg</strong>
+          </article>
+          <article class="testimonial fade">
+            <div class="stars">5/5</div>
+            <p>"Landscaping quality was outstanding and completed on schedule. The property looked transformed."</p>
+            <strong>Michael R. - Montgomery County</strong>
+          </article>
+          <article class="testimonial fade">
+            <div class="stars">5/5</div>
+            <p>"Strong execution and clear communication. Efficient, practical, and easy to work with."</p>
+            <strong>Aisha T. - Business Owner</strong>
+          </article>
+        </div>
+
+        <div class="faq">
+          <article class="faq-item fade">
+            <button class="faq-btn"><span>Do you provide same-day service?</span><span class="faq-icon">+</span></button>
+            <div class="faq-content">Same-day service is available for many request types based on location and schedule capacity.</div>
+          </article>
+          <article class="faq-item fade">
+            <button class="faq-btn"><span>Can projects combine multiple service categories?</span><span class="faq-icon">+</span></button>
+            <div class="faq-content">Yes. Many clients combine repair and outdoor needs in one coordinated service plan.</div>
+          </article>
+          <article class="faq-item fade">
+            <button class="faq-btn"><span>How do estimates work?</span><span class="faq-icon">+</span></button>
+            <div class="faq-content">After receiving your scope, we provide a clear estimate and recommend the best timeline for execution.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <article class="contact-panel fade">
+          <span class="eyebrow">Contact us</span>
+          <h2 style="font-size: clamp(1.55rem, 4vw, 2.25rem);">Request your consultation</h2>
+          <p style="margin-top: 0.55rem; color: var(--ink-soft);">Share your project goals and we will follow up with scope and next steps.</p>
+
+          <ul class="contact-list">
+            <li><strong>Phone</strong><a href="tel:5714029160">(571) 402-9160</a></li>
+            <li><strong>Email</strong><a href="mailto:info@amerisolutions.com">info@amerisolutions.com</a></li>
+            <li><strong>Location</strong><a href="https://www.google.com/maps/search/?api=1&query=Clarksburg,+Maryland" target="_blank" rel="noopener noreferrer">Clarksburg, Maryland</a></li>
+            <li><strong>Coverage</strong>Montgomery County and surrounding communities</li>
+          </ul>
+        </article>
+
+        <article class="form-panel fade">
+          <form id="quote-form" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" />
+              <div class="error" data-error-for="name"></div>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number *</label>
+              <input id="phone" name="phone" type="tel" placeholder="(571) 402-9160" required />
+              <div class="error" data-error-for="phone"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <div class="error" data-error-for="email"></div>
+            </div>
+
+            <div class="field">
+              <label for="service">Service category</label>
+              <select id="service" name="service">
+                <option value="">Select service</option>
+                <option value="Handyman">Handyman and Repairs</option>
+                <option value="Flooring">Flooring Services</option>
+                <option value="Landscaping">Landscaping and Outdoor Care</option>
+                <option value="Snow Removal">Snow and Ice Removal</option>
+                <option value="Mixed">Multiple categories</option>
+              </select>
+              <div class="error" data-error-for="service"></div>
+            </div>
+
+            <div class="field">
+              <label for="timeline">Preferred timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select timeline</option>
+                <option>ASAP</option>
+                <option>This week</option>
+                <option>Within 2 weeks</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="details">Project details</label>
+              <textarea id="details" name="details" placeholder="Describe your project"></textarea>
+              <div class="error" data-error-for="details"></div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit Request</button>
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">(c) 2026 Ameri Solutions. All rights reserved.</div>
+  </footer>
+
+  <a class="floating-call" href="tel:5714029160">Call now</a>
+
+  <div class="modal" id="project-modal" aria-hidden="true">
+    <article class="modal-card">
+      <div class="modal-media"><img id="modal-image" src="" alt="Project" /></div>
+      <div class="modal-body">
+        <button class="modal-close" id="modal-close" aria-label="Close">X</button>
+        <span class="modal-tag" id="modal-category"></span>
+        <h3 id="modal-title" style="font-size: 1.38rem;"></h3>
+        <p id="modal-description" style="color: var(--ink-soft); font-size: 0.9rem;"></p>
+        <a href="#contact" class="btn btn-primary" id="modal-cta">Request similar service</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDsY8A38H9mSR9Qbydeo0NWe4VPDneFEGQ",
+      authDomain: "ameri-solutions.firebaseapp.com",
+      projectId: "ameri-solutions",
+      storageBucket: "ameri-solutions.firebasestorage.app",
+      messagingSenderId: "790563539005",
+      appId: "1:790563539005:web:786c51f48868079aacc254"
+    };
+
+    const PROJECTS_STORAGE_KEY = "ameri_projects_v1";
+    const defaultProjects = [
+      {
+        id: "project-fireplace",
+        title: "Custom fireplace drywall",
+        category: "Handyman",
+        image: "IMG_0429.jpeg",
+        summary: "Custom drywall framing and smooth finish integration.",
+        detail: "Complete fireplace wall framing, drywall installation, and finishing to prepare the area for final visual treatment."
+      },
+      {
+        id: "project-signage",
+        title: "Commercial signage install",
+        category: "Handyman",
+        image: "IMG_1898.jpeg",
+        summary: "Clean and secure exterior mounting for business signage.",
+        detail: "Measured and installed exterior signage with stable anchors and precise leveling for a professional facade result."
+      },
+      {
+        id: "project-lawn",
+        title: "Estate lawn maintenance",
+        category: "Landscaping",
+        image: "IMG_0787.jpeg",
+        summary: "Large-property lawn service and edge detailing.",
+        detail: "Routine groundskeeping with mowing, trimming, and cleanup to maintain a polished presentation across expansive property zones."
+      },
+      {
+        id: "project-patio",
+        title: "Patio garden refresh",
+        category: "Landscaping",
+        image: "IMG_1941.jpeg",
+        summary: "Seasonal plant care and outdoor layout updates.",
+        detail: "Reworked patio garden layout, repotted key plant groups, and refreshed the space for stronger aesthetics and maintenance ease."
+      },
+      {
+        id: "project-transport",
+        title: "Secure appliance transport",
+        category: "Handyman",
+        image: "IMG_2043.jpeg",
+        summary: "Safe hauling and delivery coordination.",
+        detail: "Planned and executed appliance transport with load protection, careful handling, and staged delivery logistics."
+      },
+      {
+        id: "project-flooring",
+        title: "Hardwood floor refinishing",
+        category: "Flooring",
+        image: "IMG_0646.jpeg",
+        summary: "Interior sanding, stain touch-up, and finish work for a clean wood-floor refresh.",
+        detail: "Performed detailed hardwood floor refinishing and edge touch-up work to restore tone consistency and improve the room's final finish quality."
+      },
+      {
+        id: "project-snow",
+        title: "Driveway snow and ice clearing",
+        category: "Snow Removal",
+        image: "IMG_1148.jpeg",
+        summary: "Snow removal and de-icing for a safer residential driveway and garage approach.",
+        detail: "Cleared compacted snow and treated icy sections around the driveway entrance and garage access to improve winter safety and traction."
+      },
+      {
+        id: "project-snow-sidewalk",
+        title: "Neighborhood sidewalk clearing",
+        category: "Snow Removal",
+        image: "IMG_1250.jpeg",
+        summary: "Walkway snow removal for safer pedestrian access around the property.",
+        detail: "Opened a clean sidewalk path and edge zones to reduce slipping risk and improve winter walk access."
+      },
+      {
+        id: "project-snow-garage",
+        title: "Garage apron snow clearing",
+        category: "Snow Removal",
+        image: "IMG_1252.jpeg",
+        summary: "Driveway and garage-front snow management for safer vehicle entry.",
+        detail: "Removed packed snow from the driveway approach and garage apron to restore traction and improve vehicle access."
+      },
+      {
+        id: "project-furniture",
+        title: "Outdoor furniture assembly",
+        category: "Handyman",
+        image: "IMG_1980.jpeg",
+        summary: "Complex outdoor unit assembly and stability checks.",
+        detail: "Completed detailed assembly and final alignment for outdoor furniture systems with safety and durability checks."
+      }
+    ];
+
+    const projectGrid = document.getElementById("projects-grid");
+    const filterRow = document.getElementById("filter-row");
+    const modal = document.getElementById("project-modal");
+
+    const modalImage = document.getElementById("modal-image");
+    const modalCategory = document.getElementById("modal-category");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDescription = document.getElementById("modal-description");
+    const modalClose = document.getElementById("modal-close");
+    const modalCta = document.getElementById("modal-cta");
+    const modalFallbackImage = "IMG_0505.JPG";
+    const preferredCategoryOrder = ["Handyman", "Flooring", "Landscaping", "Snow Removal"];
+
+    let remoteProjects = [];
+    let projects = buildProjectList();
+    let currentProjectFilter = "All";
+
+    function cloneDefaultProjects() {
+      return defaultProjects.map((item) => ({ ...item }));
+    }
+
+    function createProjectId() {
+      return `project-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function sanitizeProject(project) {
+      if (!project || typeof project !== "object") return null;
+      const title = String(project.title || "").trim();
+      const category = String(project.category || "").trim();
+      const image = String(project.image || "").trim();
+      const summary = String(project.summary || "").trim();
+      const detail = String(project.detail || "").trim();
+      if (!title || !category || !summary || !detail || !image) return null;
+      return {
+        id: String(project.id || createProjectId()),
+        title,
+        category,
+        image,
+        summary,
+        detail
+      };
+    }
+
+    function loadLocalProjects() {
+      try {
+        const raw = localStorage.getItem(PROJECTS_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return [];
+        return parsed.map((item) => sanitizeProject(item)).filter(Boolean);
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function mergeProjectSets(...sets) {
+      const merged = new Map();
+      sets.flat().forEach((item) => {
+        const cleaned = sanitizeProject(item);
+        if (!cleaned) return;
+        merged.set(cleaned.id, cleaned);
+      });
+      return [...merged.values()];
+    }
+
+    function buildProjectList() {
+      return mergeProjectSets(cloneDefaultProjects(), loadLocalProjects(), remoteProjects);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function bindProjectImageState(imageNode) {
+      imageNode.onerror = () => {
+        const media = imageNode.closest(".project-media");
+        if (media) media.classList.add("missing");
+      };
+    }
+
+    function getAvailableFilters() {
+      const categories = [...new Set(projects.map((item) => item.category).filter(Boolean))];
+      const preferred = preferredCategoryOrder.filter((item) => categories.includes(item));
+      const extras = categories.filter((item) => !preferredCategoryOrder.includes(item)).sort((a, b) => a.localeCompare(b));
+      return ["All", ...preferred, ...extras];
+    }
+
+    function ensureValidFilter(filter) {
+      const available = getAvailableFilters();
+      return available.includes(filter) ? filter : "All";
+    }
+
+    function renderFilterButtons() {
+      const filters = getAvailableFilters();
+      filterRow.innerHTML = filters
+        .map((filter) => `<button class="filter-btn${filter === currentProjectFilter ? " active" : ""}" data-filter="${escapeHtml(filter)}">${escapeHtml(filter)}</button>`)
+        .join("");
+    }
+
+    function renderProjects(filter = currentProjectFilter) {
+      projects = buildProjectList();
+      currentProjectFilter = ensureValidFilter(filter);
+      renderFilterButtons();
+      const list = currentProjectFilter === "All" ? projects : projects.filter((item) => item.category === currentProjectFilter);
+
+      if (!list.length) {
+        projectGrid.innerHTML = '<p class="projects-empty">No projects found in this category yet.</p>';
+        return;
+      }
+
+      projectGrid.innerHTML = list
+        .map((item) => {
+          return `
+            <article class="project-card fade" data-project-id="${item.id}" role="button" tabindex="0" aria-label="Open project: ${escapeHtml(item.title)}">
+              <div class="project-media">
+                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" />
+                <span class="missing-media">Image coming soon</span>
+              </div>
+              <div class="project-body">
+                <h3 class="project-title">${escapeHtml(item.title)}</h3>
+                <p class="project-desc">${escapeHtml(item.summary)}</p>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => openProject(card.dataset.projectId));
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openProject(card.dataset.projectId);
+          }
+        });
+      });
+
+      document.querySelectorAll(".project-media img").forEach((imageNode) => {
+        bindProjectImageState(imageNode);
+      });
+
+      revealElements();
+    }
+
+    function openProject(projectId) {
+      const item = projects.find((project) => project.id === projectId);
+      if (!item) return;
+      modalImage.onerror = () => {
+        modalImage.onerror = null;
+        modalImage.src = modalFallbackImage;
+      };
+      modalImage.src = item.image;
+      modalImage.alt = item.title;
+      modalCategory.textContent = item.category;
+      modalTitle.textContent = item.title;
+      modalDescription.textContent = item.detail;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProject() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function getTimestampMillis(value) {
+      if (typeof value === "number" && Number.isFinite(value)) return value;
+      if (value && typeof value.toMillis === "function") return value.toMillis();
+      if (value && typeof value === "object" && typeof value.seconds === "number") return value.seconds * 1000;
+      return 0;
+    }
+
+    async function syncProjectsFromFirebase() {
+      try {
+        const [{ initializeApp, getApps }, { getFirestore, collection, getDocs }] = await Promise.all([
+          import("https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"),
+          import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js")
+        ]);
+
+        const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const snapshot = await getDocs(collection(db, "projects"));
+        remoteProjects = snapshot.docs
+          .map((docSnap) => {
+            const raw = docSnap.data() || {};
+            const status = String(raw.status || "").trim().toLowerCase();
+            if (status === "draft") return null;
+            const project = sanitizeProject({
+              id: String(raw.id || raw.projectId || docSnap.id),
+              title: raw.title,
+              category: raw.category,
+              image: raw.image,
+              summary: raw.summary,
+              detail: raw.detail
+            });
+            if (!project) return null;
+            return {
+              project,
+              sortValue: Math.max(
+                getTimestampMillis(raw.publishedAt),
+                getTimestampMillis(raw.updatedAt),
+                getTimestampMillis(raw.createdAt)
+              )
+            };
+          })
+          .filter(Boolean)
+          .sort((a, b) => b.sortValue - a.sortValue)
+          .map((entry) => entry.project);
+
+        renderProjects(currentProjectFilter);
+      } catch (error) {
+        console.warn("Project sync unavailable:", error);
+      }
+    }
+
+    modalClose.addEventListener("click", closeProject);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeProject();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      if (modal.classList.contains("open")) closeProject();
+      if (mobilePanel.classList.contains("open")) setMobileMenuState(false);
+    });
+    modalCta.addEventListener("click", () => {
+      closeProject();
+    });
+    window.addEventListener("hashchange", () => {
+      if (modal.classList.contains("open")) closeProject();
+    });
+
+    filterRow.addEventListener("click", (event) => {
+      const button = event.target.closest(".filter-btn");
+      if (!button) return;
+      renderProjects(button.dataset.filter);
+    });
+
+    window.addEventListener("storage", (event) => {
+      if (event.key !== PROJECTS_STORAGE_KEY) return;
+      renderProjects(currentProjectFilter);
+    });
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobilePanel = document.getElementById("mobile-panel");
+    const mobileBackdrop = document.getElementById("mobile-backdrop");
+
+    function setMobileMenuState(open) {
+      mobilePanel.classList.toggle("open", open);
+      mobileBackdrop.classList.toggle("open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      menuToggle.textContent = open ? "Close" : "Menu";
+      mobilePanel.setAttribute("aria-hidden", String(!open));
+    }
+
+    menuToggle.addEventListener("click", () => {
+      setMobileMenuState(!mobilePanel.classList.contains("open"));
+    });
+
+    mobileBackdrop.addEventListener("click", () => {
+      setMobileMenuState(false);
+    });
+
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        setMobileMenuState(false);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760 && mobilePanel.classList.contains("open")) {
+        setMobileMenuState(false);
+      }
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach((item) => {
+      const button = item.querySelector(".faq-btn");
+      button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        faqItems.forEach((entry) => entry.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      });
+    });
+
+    const quoteForm = document.getElementById("quote-form");
+    const status = document.getElementById("form-status");
+
+    function setError(field, message) {
+      const target = document.querySelector(`[data-error-for="${field}"]`);
+      if (target) target.textContent = message;
+    }
+
+    function clearErrors() {
+      ["name", "phone", "email", "service", "details"].forEach((field) => setError(field, ""));
+    }
+
+    quoteForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      clearErrors();
+      status.className = "form-status";
+      status.textContent = "";
+
+      const data = new FormData(quoteForm);
+      const name = String(data.get("name") || "").trim();
+      const phone = String(data.get("phone") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const service = String(data.get("service") || "").trim();
+      const details = String(data.get("details") || "").trim();
+
+      let valid = true;
+
+      if (name.length < 2) {
+        setError("name", "Please enter your full name.");
+        valid = false;
+      }
+
+      if (!/^\+?[0-9\s().-]{10,}$/.test(phone)) {
+        setError("phone", "Please enter a valid phone number.");
+        valid = false;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError("email", "Please enter a valid email address.");
+        valid = false;
+      }
+
+      if (!service) {
+        setError("service", "Please select a service category.");
+        valid = false;
+      }
+
+      if (details.length < 12) {
+        setError("details", "Please provide a little more project detail.");
+        valid = false;
+      }
+
+      if (!valid) {
+        status.className = "form-status warn show";
+        status.textContent = "Please review the highlighted fields.";
+        return;
+      }
+
+      status.className = "form-status success show";
+      status.textContent = "Request submitted. For the fastest response, call (571) 402-9160.";
+      quoteForm.reset();
+    });
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function setActiveNav() {
+      let current = "home";
+      const top = window.scrollY;
+      sections.forEach((section) => {
+        const offset = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        if (top >= offset && top < offset + height) current = section.id;
+      });
+
+      navLinks.forEach((link) => {
+        const target = link.getAttribute("href").replace("#", "");
+        link.classList.toggle("active", target === current);
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    function revealElements() {
+      document.querySelectorAll(".fade").forEach((node) => observer.observe(node));
+    }
+
+    window.addEventListener("scroll", setActiveNav);
+
+    renderProjects("All");
+    revealElements();
+    setActiveNav();
+    syncProjectsFromFirebase();
+  </script>
+</body>
+</html>
