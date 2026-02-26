@@ -4,26 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ameri Solutions | Owner Project Portal</title>
+
+    <!-- ==================== PASTE YOUR FULL ORIGINAL CSS HERE ==================== -->
     <style>
-        /* your existing styles remain unchanged – I'm not repeating them here to save space */
-        /* ... paste your original <style> block here ... */
+        /* Replace everything in this <style> block with your REAL original styles */
+        :root {
+            --bg: #f4f7f5;
+            --card: #ffffff;
+            --ink: #1b2320;
+            --ink-soft: #5a6a63;
+            --line: #d8dfdb;
+            --brand: #1f7a5a;
+            --brand-soft: #e8f3ef;
+            --warn: #b45309;
+            --ok: #166534;
+        }
+        /* ... your full original CSS continues here ... */
+        /* Do NOT leave comments like "paste your original styles" in the live file */
     </style>
 </head>
 <body>
-    <!-- your HTML structure remains unchanged -->
-    <!-- ... paste your original HTML (auth-screen, app-shell, form, preview modal, etc.) here ... -->
 
+    <!-- ==================== PASTE YOUR FULL ORIGINAL HTML HERE ==================== -->
+    <section id="auth-screen" class="card">
+        <h1>Owner Login</h1>
+        <p class="subtle">Sign in to create, preview, and publish projects.</p>
+        <form id="login-form" novalidate>
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" autocomplete="email" required>
+
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" autocomplete="current-password" required>
+
+            <div class="auth-actions">
+                <button type="submit" class="btn-primary" style="width: 100%;">Unlock Portal</button>
+            </div>
+        </form>
+        <p id="auth-status" class="status"></p>
+    </section>
+
+    <section id="app-shell" class="card" style="display:none;">
+        <!-- Your full app shell HTML goes here: header, form, preview area, published list, etc. -->
+        <div class="header">
+            <div>
+                <h2>Project Publisher</h2>
+                <p class="subtle">Create a draft, check preview, then publish to website.</p>
+            </div>
+            <button type="button" id="logout" class="btn-muted">Logout</button>
+        </div>
+
+        <form id="project-form" novalidate>
+            <!-- PASTE YOUR REAL FORM FIELDS HERE -->
+            <!-- title, category select, image file input, summary textarea, detail textarea, buttons, etc. -->
+        </form>
+
+        <!-- Preview area, published projects list, etc. -->
+    </section>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
         import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDsY8A38H9mSR9Qbydeo0NWe4VPDneFEGQ",
             authDomain: "ameri-solutions.firebaseapp.com",
             projectId: "ameri-solutions",
-            storageBucket: "ameri-solutions.firebasestorage.app",   // ← FIXED HERE
+            storageBucket: "ameri-solutions.firebasestorage.app",
             messagingSenderId: "790563539005",
             appId: "1:790563539005:web:786c51f48868079aacc254"
         };
@@ -31,40 +80,59 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const storage = getStorage(app, "ameri-solutions.firebasestorage.app");  // ← EXPLICIT BUCKET
+        const storage = getStorage(app, "ameri-solutions.firebasestorage.app");
 
-        // ... your existing variables (allProjects, editingId, form elements, etc.) ...
+        console.log("Firebase initialized with bucket:", storage.app.options.storageBucket);
 
-        // UPDATED saveProject function – this is where the upload happens
+        // ==================== PASTE YOUR FULL ORIGINAL JAVASCRIPT LOGIC HERE ====================
+        // All variables, DOM queries, event listeners, preview function, published projects loading, etc.
+        // Especially:
+        // - const loginForm = document.getElementById('login-form');
+        // - const projectForm = document.getElementById('project-form');
+        // - onAuthStateChanged(...)
+        // - loginForm.addEventListener('submit', ...)
+        // - projectForm.addEventListener('submit', ...)
+        // - Your preview button handler
+        // - Published projects rendering
+
+        // Example minimal auth handler (add your full version)
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('auth-screen').style.display = 'none';
+                document.getElementById('app-shell').style.display = 'block';
+            } else {
+                document.getElementById('auth-screen').style.display = 'block';
+                document.getElementById('app-shell').style.display = 'none';
+            }
+        });
+
+        // Your saveProject function with upload fix
         async function saveProject(project, status = "published") {
             try {
-                let imageUrl = project.image; // default to existing/pasted URL
+                let imageUrl = project.image || '';
 
-                // If user selected a file → upload it
-                if (selectedImageFile) {
+                // Replace with your actual file input variable name
+                const fileInput = document.getElementById('project-image-file'); // ← change ID if different
+                const selectedFile = fileInput?.files?.[0];
+
+                if (selectedFile) {
                     console.log("Starting upload to correct bucket...");
-                    const storagePath = `project-images/${Date.now()}-${selectedImageFile.name}`;
+                    const storagePath = `project-images/${Date.now()}-${selectedFile.name}`;
                     const storageRef = ref(storage, storagePath);
+                    const uploadTask = uploadBytesResumable(storageRef, selectedFile);
 
-                    const uploadTask = uploadBytesResumable(storageRef, selectedImageFile);
-
-                    // Optional: progress logging
                     uploadTask.on('state_changed',
                         (snapshot) => {
                             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                             console.log(`Upload progress: ${progress}%`);
                         },
-                        (error) => {
-                            console.error("Upload failed:", error);
-                            throw error;
-                        },
+                        (error) => console.error("Upload error:", error),
                         async () => {
                             imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-                            console.log("Upload complete. Download URL:", imageUrl);
+                            console.log("Upload complete. URL:", imageUrl);
                         }
                     );
 
-                    // Wait for upload to finish
                     await uploadTask;
                 }
 
@@ -74,34 +142,22 @@
                     image: imageUrl,
                     summary: project.summary,
                     detail: project.detail,
-                    status: status,
+                    status,
                     createdAt: serverTimestamp(),
                     updatedAt: serverTimestamp()
                 };
 
-                if (editingId) {
-                    await updateDoc(doc(db, "projects", editingId), payload);
-                    console.log("Project updated");
-                } else {
-                    await addDoc(collection(db, "projects"), payload);
-                    console.log("Project published");
-                }
+                // Replace with your actual logic (addDoc or updateDoc)
+                await addDoc(collection(db, "projects"), payload);
+                console.log("Project saved successfully");
 
-                return imageUrl;
             } catch (err) {
-                console.error("Save/publish error:", err.code, err.message);
-                throw err;
+                console.error("Save error:", err.code, err.message);
             }
         }
 
-        // ... rest of your existing script (form submit, preview, published list, auth, etc.) ...
-
-        // In your projectForm.onsubmit handler, keep using saveProject(project, "published")
-        // The error handling there will now show more useful messages if something fails
-
-        // Optional: add this at the end for debugging
-        console.log("Firebase initialized with bucket:", storage.app.options.storageBucket);
-
+        // Add your full form submit logic here
+        // document.getElementById('project-form').addEventListener('submit', async (e) => { ... saveProject(...) });
     </script>
 </body>
 </html>
